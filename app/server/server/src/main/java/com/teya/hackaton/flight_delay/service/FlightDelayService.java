@@ -70,8 +70,8 @@ public class FlightDelayService {
         double[] posterior = new double[2]; // Array to store posterior probabilities
         model.predict(new double[]{dayOfWeek, airportId}, posterior); // Use predictProba method
         DelayPredictionResponse response = new DelayPredictionResponse();
-        response.setDelayChance(posterior[1]); // Assuming index 1 corresponds to the delay chance (class 1)
-        response.setConfidence(posterior[1]); // Confidence is the probability of the predicted class
+        response.setDelayChance(posterior[1]);
+        response.setConfidence(accuracy);
         return response;
     }
 
