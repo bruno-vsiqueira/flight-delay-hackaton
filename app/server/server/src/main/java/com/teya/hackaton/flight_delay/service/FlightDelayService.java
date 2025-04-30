@@ -20,8 +20,7 @@ public class FlightDelayService {
     }
 
     public DelayPredictionResponse predictDelay(DelayPredictionRequest request) {
-        // TODO: Integrate with an actual prediction model
-        // This is a placeholder implementation
+
         Random random = new Random();
         double delayChance = random.nextDouble();
         double confidence = 70.0 + (random.nextDouble() * 30.0); // between 70% and 100%
