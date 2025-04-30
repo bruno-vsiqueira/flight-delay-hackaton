@@ -76,6 +76,7 @@ class _AirportSelectionPageState extends State<AirportSelectionPage> {
                           builder: (context) => PredictionResultPage(
                             selectedDay: widget.selectedDay,
                             airportId: airport.airportId,
+                            state: airport.state,
                           ),
                         ),
                       );

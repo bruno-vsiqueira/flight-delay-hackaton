@@ -1,3 +1,7 @@
+import 'package:delayed/cubit/weather_cubit.dart';
+import 'package:delayed/datasource/weather_datasource.dart';
+import 'package:delayed/repository/weather_repository.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -18,6 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final datasource = FlightsDatasource();
     final repository = FlightsRepository(datasource);
+    final weatherRepository = WeatherRepository(WeatherDatasource(Dio()));
 
     return MultiBlocProvider(
       providers: [
@@ -26,6 +31,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider<PredictDelayCubit>(
           create: (context) => PredictDelayCubit(repository),
+        ),
+        BlocProvider<WeatherCubit>(
+          create: (context) => WeatherCubit(weatherRepository),
         ),
       ],
       child: MaterialApp(
