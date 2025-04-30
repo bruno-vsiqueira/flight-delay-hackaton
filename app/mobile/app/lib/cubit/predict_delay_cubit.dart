@@ -16,7 +16,7 @@ class PredictDelayCubit extends Cubit<PredictDelayState> {
 
   PredictDelayCubit(this._repository) : super(const PredictDelayInitial());
 
-  Future<void> predictDelay(DayOfWeek dayOfWeek, String airportId) async {
+  Future<void> predictDelay(DayOfWeek dayOfWeek, int airportId) async {
     emit(const PredictDelayLoading());
 
     final result = await _repository.predictDelay(dayOfWeek, airportId);

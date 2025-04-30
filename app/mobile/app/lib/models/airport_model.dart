@@ -1,5 +1,5 @@
 class AirportModel {
-  final String airportId;
+  final int airportId;
   final String airportName;
   final String city;
   final String state;

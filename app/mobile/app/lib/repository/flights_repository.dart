@@ -26,7 +26,7 @@ class FlightsRepository {
   }
 
   Future<Either<BaseFailure, PredictDelayResponseModel>> predictDelay(
-      DayOfWeek dayOfWeek, String airportId) async {
+      DayOfWeek dayOfWeek, int airportId) async {
     try {
       final response = await _datasource.predictDelay(dayOfWeek, airportId);
       return Right(response);

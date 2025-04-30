@@ -8,7 +8,7 @@ import '../widgets/linear_percent_indicator.dart';
 
 class PredictionResultPage extends StatelessWidget {
   final DayOfWeek selectedDay;
-  final String airportId;
+  final int airportId;
 
   const PredictionResultPage({
     super.key,
@@ -136,8 +136,7 @@ class PredictionResultPage extends StatelessWidget {
                         ),
                         const SizedBox(height: 8),
                         LinearPercentIndicator(
-                          percent:
-                              (state.response.confidence / 100).clamp(0, 1),
+                          percent: state.response.confidence.clamp(0, 1),
                           lineHeight: 16,
                           progressColor: Colors.green,
                           backgroundColor: Colors.grey.shade300,
@@ -145,7 +144,7 @@ class PredictionResultPage extends StatelessWidget {
                         ),
                         const SizedBox(height: 12),
                         Text(
-                          "${state.response.confidence.toStringAsFixed(1)}%",
+                          "${(state.response.confidence * 100).toStringAsFixed(1)}%",
                           style: const TextStyle(fontSize: 18),
                         ),
                         const SizedBox(height: 32),
