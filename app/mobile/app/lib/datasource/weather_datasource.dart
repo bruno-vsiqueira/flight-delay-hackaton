@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 
 class WeatherDatasource {
-  final String _apiKey = 'YOUR_OPENWEATHER_API_KEY';
+  final String _apiKey = 'f66137c5644d6534b13339be48d507f1';
   final String _baseUrl = 'https://api.openweathermap.org/data/2.5/weather';
   final Dio _dio;
 
