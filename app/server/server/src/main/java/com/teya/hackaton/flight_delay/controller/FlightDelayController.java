@@ -15,8 +15,7 @@ import java.util.List;
 public class FlightDelayController {
 
     private final FlightDelayService flightDelayService;
-    
-    @Autowired
+
     public FlightDelayController(FlightDelayService flightDelayService) {
         this.flightDelayService = flightDelayService;
     }
