@@ -32,7 +32,7 @@ public class Flight {
     private Integer depDelay;
 
     @Column(name = "dep_del15", precision = 3, scale = 1)
-    private BigDecimal depDel15;
+    private Integer depDel15;
 
     @Column(name = "crs_arr_time")
     private Integer crsArrTime;
@@ -41,7 +41,7 @@ public class Flight {
     private Integer arrDelay;
 
     @Column(name = "arr_del15", precision = 3, scale = 1)
-    private BigDecimal arrDel15;
+    private Integer arrDel15;
 
     private Integer cancelled;
 
@@ -126,11 +126,11 @@ public class Flight {
         this.depDelay = depDelay;
     }
 
-    public BigDecimal getDepDel15() {
+    public Integer getDepDel15() {
         return depDel15;
     }
 
-    public void setDepDel15(BigDecimal depDel15) {
+    public void setDepDel15(Integer depDel15) {
         this.depDel15 = depDel15;
     }
 
@@ -150,11 +150,11 @@ public class Flight {
         this.arrDelay = arrDelay;
     }
 
-    public BigDecimal getArrDel15() {
+    public Integer getArrDel15() {
         return arrDel15;
     }
 
-    public void setArrDel15(BigDecimal arrDel15) {
+    public void setArrDel15(Integer arrDel15) {
         this.arrDel15 = arrDel15;
     }
 
