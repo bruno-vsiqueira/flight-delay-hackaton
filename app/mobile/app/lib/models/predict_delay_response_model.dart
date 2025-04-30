@@ -2,19 +2,21 @@ class PredictDelayResponseModel {
   final double delayChance;
   final double confidence;
 
-  PredictDelayResponseModel(
-      {required this.delayChance, required this.confidence});
+  PredictDelayResponseModel({
+    required this.delayChance,
+    required this.confidence,
+  });
 
   factory PredictDelayResponseModel.fromJson(Map<String, dynamic> json) {
     return PredictDelayResponseModel(
-      delayChance: json['delay_chance'],
+      delayChance: json['delayChance'],
       confidence: json['confidence'],
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
-      'delay_chance': delayChance,
+      'delayChance': delayChance,
       'confidence': confidence,
     };
   }
