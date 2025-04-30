@@ -65,7 +65,6 @@ public class FlightDelayService {
         }
 
         double accuracy = (double) correct / testLabels.length;
-        System.out.println("Model Accuracy: " + accuracy);
 
         double[] posterior = new double[2]; // Array to store posterior probabilities
         model.predict(new double[]{dayOfWeek, airportId}, posterior); // Use predictProba method
