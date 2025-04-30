@@ -34,7 +34,7 @@ public class FlightDelayService {
             Flight flight = flights.get(i);
             features[i][0] = flight.getDw();
             features[i][1] = flight.getDestAirportID();
-            labels[i] = flight.getArrDel15(); // Assign int directly
+            labels[i] = flight.getArrDel15().intValue(); // Assign int directly
         }
 
         int trainSize = (int) (n * 0.8);

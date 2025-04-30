@@ -17,9 +17,9 @@ CREATE TABLE flights (
                          DestAirportID INT,
                          CRSDepTime INT,
                          DepDelay INT,
-                         DepDel15 INT,
+                         DepDel15 DECIMAL(3,1),
                          CRSArrTime INT,
                          ArrDelay INT,
-                         ArrDel15 INT,
+                         ArrDel15 DECIMAL(3,1),
                          Cancelled INT
 );
