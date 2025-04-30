@@ -19,28 +19,28 @@ public class Flight {
     @Column(length = 2)
     private String carrier;
 
-    @Column(name = "origin_airport_id")
+    @Column(name = "OriginAirportID")
     private Integer originAirportID;
 
-    @Column(name = "dest_airport_id")
+    @Column(name = "DestAirportID")
     private Integer destAirportID;
 
-    @Column(name = "crs_dep_time")
+    @Column(name = "CRSDepTime")
     private Integer crsDepTime;
 
-    @Column(name = "dep_delay")
+    @Column(name = "DepDelay")
     private Integer depDelay;
 
-    @Column(name = "dep_del15", precision = 3, scale = 1)
+    @Column(name = "DepDel15", precision = 3, scale = 1)
     private BigDecimal depDel15;
 
-    @Column(name = "crs_arr_time")
+    @Column(name = "CRSArrTime")
     private Integer crsArrTime;
 
-    @Column(name = "arr_delay")
+    @Column(name = "ArrDelay")
     private Integer arrDelay;
 
-    @Column(name = "arr_del15", precision = 3, scale = 1)
+    @Column(name = "ArrDel15", precision = 3, scale = 1)
     private BigDecimal arrDel15;
 
     private Integer cancelled;
