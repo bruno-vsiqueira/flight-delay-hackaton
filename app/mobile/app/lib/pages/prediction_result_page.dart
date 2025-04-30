@@ -24,6 +24,14 @@ class PredictionResultPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Prediction Result'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.close),
+            onPressed: () {
+              Navigator.popUntil(context, (route) => route.isFirst);
+            },
+          ),
+        ],
       ),
       body: Container(
         decoration: const BoxDecoration(
@@ -105,7 +113,7 @@ class PredictionResultPage extends StatelessWidget {
                         const SizedBox(height: 32),
                         const Text(
                           "Flight Delay Probability",
-                          style: TextStyle(fontSize: 18, color: Colors.grey),
+                          style: TextStyle(fontSize: 18, color: Colors.black87),
                         ),
                         const SizedBox(height: 8),
                         CircularPercentIndicator(
@@ -124,7 +132,7 @@ class PredictionResultPage extends StatelessWidget {
                         const SizedBox(height: 32),
                         const Text(
                           "Prediction Confidence",
-                          style: TextStyle(fontSize: 18, color: Colors.grey),
+                          style: TextStyle(fontSize: 18, color: Colors.black87),
                         ),
                         const SizedBox(height: 8),
                         LinearPercentIndicator(
