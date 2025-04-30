@@ -1,0 +1,92 @@
+openapi: 3.0.3
+info:
+  title: Flight Delay Prediction API
+  description: API to predict flight delays and retrieve airport information.
+  version: 1.0.0
+paths:
+  /predict-delay:
+    post:
+      summary: Predict flight delay
+      description: Accepts a day of the week and an airport ID, calls the model, and returns the chances of delay and confidence percentage.
+      requestBody:
+        $ref: '#/components/requestBodies/PredictDelayRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/PredictDelayResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /airports:
+    get:
+      summary: Get list of airports
+      description: Returns a list of airport names and IDs, sorted in alphabetical order.
+      responses:
+        '200':
+          $ref: '#/components/responses/AirportsListResponse'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+    PredictDelayResponse:
+      type: object
+      properties:
+        delay_chance:
+          type: number
+          format: float
+          description: Probability of flight delay (0 to 1).
+          example: 0.75
+        confidence:
+          type: number
+          format: float
+          description: Confidence percentage of the prediction.
+          example: 95.0
+    Airport:
+      type: object
+      properties:
+        airport_id:
+          type: string
+          description: ID of the airport.
+          example: 15304
+        airport_name:
+          type: string
+          description: Name of the airport.
+          example: Tampa International
+  requestBodies:
+    PredictDelayRequest:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              day_of_week:
+                type: string
+                description: Day of the week (e.g., Monday, Tuesday).
+                example: Monday
+              airport_id:
+                type: string
+                description: ID of the airport.
+                example: 15304
+            required:
+              - day_of_week
+              - airport_id
+  responses:
+    PredictDelayResponse:
+      description: Prediction result
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/PredictDelayResponse'
+    AirportsListResponse:
+      description: List of airports
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Airport'
+    BadRequest:
+      description: Invalid input
+    InternalServerError:
+      description: Internal server error

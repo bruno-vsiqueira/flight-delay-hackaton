@@ -6,7 +6,7 @@ In the prior exercise you created a model to predict the likelihood a flight wil
 
 You will have successfully completed the challenge after:
 
-- creating an endpoint to accept the id of the day of week and airport, which calls the model and returns both the chances the flight will be delayed and the confidence percent of the prediction.
+- creating an endpoint to accept the the day of the week and the airport id, which calls the model and returns both the chances the flight will be delayed and the confidence percent of the prediction.
 - creating an endpoint which returns the list of airport names and IDs, sorted in alphabetical order.
 - all data is returned as JSON.
 
