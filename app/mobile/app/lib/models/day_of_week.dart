@@ -12,7 +12,7 @@ enum DayOfWeek {
 
   // Helper method to convert enum to string for API
   String toApiString() {
-    return displayName;
+    return displayName.toUpperCase();
   }
 
   // Helper method to get enum from string
