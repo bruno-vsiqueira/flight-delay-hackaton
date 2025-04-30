@@ -1,3 +1,4 @@
+import 'package:delayed/models/day_of_week.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../models/predict_delay_response_model.dart';
@@ -15,7 +16,7 @@ class PredictDelayCubit extends Cubit<PredictDelayState> {
 
   PredictDelayCubit(this._repository) : super(const PredictDelayInitial());
 
-  Future<void> predictDelay(String dayOfWeek, String airportId) async {
+  Future<void> predictDelay(DayOfWeek dayOfWeek, String airportId) async {
     emit(const PredictDelayLoading());
 
     final result = await _repository.predictDelay(dayOfWeek, airportId);

@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 
 import '../datasource/flights_datasource.dart';
 import '../models/airport_model.dart';
+import '../models/day_of_week.dart';
 import '../models/predict_delay_response_model.dart';
 import '../utils/base_failure.dart';
 
@@ -25,7 +26,7 @@ class FlightsRepository {
   }
 
   Future<Either<BaseFailure, PredictDelayResponseModel>> predictDelay(
-      String dayOfWeek, String airportId) async {
+      DayOfWeek dayOfWeek, String airportId) async {
     try {
       final response = _datasource.predictDelay(dayOfWeek, airportId);
       return Right(response);
