@@ -2,22 +2,22 @@ package com.teya.hackaton.flight_delay.model;
 
 
 public class DelayPredictionRequest {
-    private Integer dayOfWeek;
-    private Integer airportId;
+    private String dayOfWeek;
+    private String airportId;
 
-    public Integer getDayOfWeek() {
+    public String getDayOfWeek() {
         return dayOfWeek;
     }
 
-    public void setDayOfWeek(Integer dayOfWeek) {
+    public void setDayOfWeek(String dayOfWeek) {
         this.dayOfWeek = dayOfWeek;
     }
 
-    public Integer getAirportId() {
+    public String getAirportId() {
         return airportId;
     }
 
-    public void setAirportId(Integer airportId) {
+    public void setAirportId(String airportId) {
         this.airportId = airportId;
     }
 }

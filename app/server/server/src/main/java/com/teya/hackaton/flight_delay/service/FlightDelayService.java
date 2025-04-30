@@ -1,9 +1,6 @@
 package com.teya.hackaton.flight_delay.service;
 
-import com.teya.hackaton.flight_delay.model.Airport;
-import com.teya.hackaton.flight_delay.model.DelayPredictionRequest;
-import com.teya.hackaton.flight_delay.model.DelayPredictionResponse;
-import com.teya.hackaton.flight_delay.model.Flight;
+import com.teya.hackaton.flight_delay.model.*;
 import com.teya.hackaton.flight_delay.repository.AirportRepository;
 import com.teya.hackaton.flight_delay.repository.FlightRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +22,9 @@ public class FlightDelayService {
     }
 
     public DelayPredictionResponse predictDelay(DelayPredictionRequest request) {
-        List<Flight> flights = flightRepository.findByDwAndDestAirportID(request.getDayOfWeek(), request.getAirportId());
+        int airportId = Integer.parseInt(request.getAirportId());
+        int dayOfWeek = DaysOfTheWeek.valueOf(request.getDayOfWeek()).getValue();
+        List<Flight> flights = flightRepository.findByDwAndDestAirportID(dayOfWeek, airportId);
 
         int n = flights.size();
         double[][] features = new double[n][2];
@@ -69,7 +68,7 @@ public class FlightDelayService {
         System.out.println("Model Accuracy: " + accuracy);
 
         double[] posterior = new double[2]; // Array to store posterior probabilities
-        model.predict(new double[]{request.getDayOfWeek(), request.getAirportId()}, posterior); // Use predictProba method
+        model.predict(new double[]{dayOfWeek, airportId}, posterior); // Use predictProba method
         DelayPredictionResponse response = new DelayPredictionResponse();
         response.setDelayChance(posterior[1]); // Assuming index 1 corresponds to the delay chance (class 1)
         response.setConfidence(posterior[1]); // Confidence is the probability of the predicted class
