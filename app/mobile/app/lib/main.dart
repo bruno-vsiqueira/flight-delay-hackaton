@@ -1,11 +1,9 @@
-import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'cubit/airports_cubit.dart';
 import 'cubit/predict_delay_cubit.dart';
 import 'datasource/flights_datasource.dart';
-import 'models/day_of_week.dart';
 import 'pages/home_page.dart';
 import 'repository/flights_repository.dart';
 

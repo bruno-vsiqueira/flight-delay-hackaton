@@ -13,7 +13,7 @@ class FlightsRepository {
 
   Future<Either<BaseFailure, List<AirportModel>>> getAirports() async {
     try {
-      final airports = _datasource.fetchAirports();
+      final airports = await _datasource.fetchAirports();
       return Right(airports);
     } catch (e, stackTrace) {
       final failure = BaseFailure(
@@ -28,7 +28,7 @@ class FlightsRepository {
   Future<Either<BaseFailure, PredictDelayResponseModel>> predictDelay(
       DayOfWeek dayOfWeek, String airportId) async {
     try {
-      final response = _datasource.predictDelay(dayOfWeek, airportId);
+      final response = await _datasource.predictDelay(dayOfWeek, airportId);
       return Right(response);
     } catch (e, stackTrace) {
       final failure = BaseFailure(

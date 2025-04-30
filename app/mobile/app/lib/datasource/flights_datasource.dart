@@ -24,15 +24,17 @@ class FlightsDatasource {
   }
   ''';
 
-  List<AirportModel> fetchAirports() {
+  Future<List<AirportModel>> fetchAirports() async {
+    await Future.delayed(const Duration(seconds: 2));
     final List<dynamic> data = json.decode(_airportsJson);
     return data.map((json) => AirportModel.fromJson(json)).toList();
   }
 
-  PredictDelayResponseModel predictDelay(
-      DayOfWeek dayOfWeek, String airportId) {
+  Future<PredictDelayResponseModel> predictDelay(
+      DayOfWeek dayOfWeek, String airportId) async {
     // In a real app, we would send the dayOfWeek and airportId to the API
     // For now, we're using the mock data
+    await Future.delayed(const Duration(seconds: 2));
     return PredictDelayResponseModel.fromJson(json.decode(_predictDelayJson));
   }
 }
