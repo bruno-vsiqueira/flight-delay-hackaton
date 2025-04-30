@@ -5,7 +5,6 @@ class CircularPercentIndicator extends StatelessWidget {
   final double lineWidth;
   final double percent; // Value between 0 and 1
   final Widget? center;
-  final Color progressColor;
   final Color backgroundColor;
   final bool animate;
   final Duration animationDuration;
@@ -16,7 +15,6 @@ class CircularPercentIndicator extends StatelessWidget {
     required this.lineWidth,
     required this.percent,
     this.center,
-    this.progressColor = Colors.blue,
     this.backgroundColor = const Color(0xFFE0E0E0),
     this.animate = false,
     this.animationDuration = const Duration(milliseconds: 500),
@@ -24,6 +22,10 @@ class CircularPercentIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dynamicProgressColor = percent < 0.5
+        ? Colors.green
+        : (percent < 0.8 ? Colors.orange : Colors.red);
+
     return SizedBox(
       width: radius * 2,
       height: radius * 2,
@@ -38,7 +40,7 @@ class CircularPercentIndicator extends StatelessWidget {
             painter: _CircularPercentPainter(
               percent: value,
               lineWidth: lineWidth,
-              progressColor: progressColor,
+              progressColor: dynamicProgressColor,
               backgroundColor: backgroundColor,
             ),
             child: Center(child: center ?? const SizedBox.shrink()),

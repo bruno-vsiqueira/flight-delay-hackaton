@@ -125,7 +125,6 @@ class PredictionResultPage extends StatelessWidget {
                             style: const TextStyle(
                                 fontSize: 24, fontWeight: FontWeight.bold),
                           ),
-                          progressColor: Colors.redAccent,
                           backgroundColor: Colors.grey.shade300,
                           animate: true,
                         ),
